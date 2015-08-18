@@ -875,15 +875,9 @@ def set_new_post_dl_action(xml_id):
 	ret1 = current_dialog.select('Select New Post Download Action', ['None','Unzip','Cancel'])
 
 	if ret1 == 0:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to none for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','none')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to None')
+		update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','none')
 	elif ret1 == 1:
-		ret2 = current_dialog.select('Are you sure you want to set the post DL action to Unzip for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
-			ok_ret = current_dialog.ok('Complete','Post Download Action Updated to Unzip')
+		update_xml_header(current_xml_path,current_xml_filename,'emu_postdlaction','unzip_rom')
 	else:
 		pass
 
