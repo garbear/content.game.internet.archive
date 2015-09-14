@@ -8,7 +8,7 @@ from descriptionparserfactory import DescriptionParserFactory
 # CONSTANTS AND GLOBALS #
 #
 
-iarl_plugin_name = 'plugin.program.iarl'
+iarl_plugin_name = 'content.game.internet.archive'
 
 __addon__ = xbmcaddon.Addon(id=iarl_plugin_name)
 
