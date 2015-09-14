@@ -300,7 +300,9 @@ def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
 
 		current_icon2 = filter(bool, current_icon)
 
-		if current_icon2:
+		if not current_icon2:
+			current_icon2 = ''
+		else:
 			current_icon2 = current_icon2[0]
 
 		current_snapshot = list()
@@ -320,7 +322,9 @@ def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
 
 		current_thumbnail2 = filter(bool, current_thumbnail)
 
-		if current_thumbnail2:
+		if not current_thumbnail2:
+			current_thumbnail2 = ''
+		else:
 			current_thumbnail2 = current_thumbnail2[0]
 
 		if entries['rom_category']:
@@ -393,7 +397,7 @@ def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
 		current_item = { 
 			'label' : current_name, 'icon': current_icon2,
 			'thumbnail' : current_thumbnail2,
-			'path' : plugin.url_for('get_selected_rom', romname=entries['rom_name'][0]),
+			'path' : '', # TODO
 			'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer},
 			'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1],
 			'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
