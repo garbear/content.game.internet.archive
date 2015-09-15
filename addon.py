@@ -15,19 +15,30 @@ def index():
     emu_info = scape_xml_headers() #Find all xml dat files and get the header info
 
     for ii in range(0,len(emu_info['emu_name'])):
-        
         items.append({ 
-            'label' : emu_info['emu_name'][ii], 'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii]), 'icon': emu_info['emu_logo'][ii],
+            'label' : emu_info['emu_name'][ii],
+            'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii]),
+            'icon': emu_info['emu_logo'][ii],
             'thumbnail' : emu_info['emu_thumb'][ii],
-            'info' : {'genre': emu_info['emu_category'][ii], 'credits': emu_info['emu_author'][ii], 'date': emu_info['emu_date'][ii], 'plot': emu_info['emu_comment'][ii], 'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]), 'FolderPath': emu_info['emu_baseurl'][ii]},
-            'properties' : {'fanart_image' : emu_info['emu_fanart'][ii], 'banner' : emu_info['emu_banner'][ii], 'clearlogo': emu_info['emu_logo'][ii]},
+            'info' : {
+                'genre': emu_info['emu_category'][ii],
+                'credits': emu_info['emu_author'][ii],
+                'date': emu_info['emu_date'][ii],
+                'plot': emu_info['emu_comment'][ii],
+                'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]),
+                'FolderPath': emu_info['emu_baseurl'][ii]
+            },
+            'properties' : {
+                'fanart_image': emu_info['emu_fanart'][ii],
+                'banner' : emu_info['emu_banner'][ii],
+                'clearlogo': emu_info['emu_logo'][ii]
+            },
         })
-    
+
     return plugin.finish(items, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])
 
 @plugin.route('/Emulator/<category_id>')
 def get_rom_page(category_id):
-    
     #Define Parser
     emu_info = scape_xml_headers()
     for ii in range(0,len(emu_info['emu_name'])):

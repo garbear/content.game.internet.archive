@@ -13,17 +13,17 @@ iarl_plugin_name = 'content.game.internet.archive'
 __addon__ = xbmcaddon.Addon(id=iarl_plugin_name)
 
 html_unescape_table = {
-		"&amp;" : "&",
-		"&quot;" : '"' ,
-		"&apos;" : "'",
-		"&gt;" : ">",
-		"&lt;" : "<",
-		"&nbsp;" : " ",
-		"&#x26;" : "&",
-		"&#x27;" : "\'",
-		"&#xB2;" : "2",
-		"&#xB3;" : "3",		
-		}
+	"&amp;" : "&",
+	"&quot;" : '"' ,
+	"&apos;" : "'",
+	"&gt;" : ">",
+	"&lt;" : "<",
+	"&nbsp;" : " ",
+	"&#x26;" : "&",
+	"&#x27;" : "\'",
+	"&#xB2;" : "2",
+	"&#xB3;" : "3",		
+}
 
 def html_unescape(text):
 	for key in html_unescape_table.keys():
@@ -32,12 +32,12 @@ def html_unescape(text):
 	return text
 
 html_escape_table = {
-		"&" : "%26",
-		" " : "%20" ,
-		"'" : "%27",
-		">" : "%3E",
-		"<" : "%3C",		
-		}
+	"&" : "%26",
+	" " : "%20" ,
+	"'" : "%27",
+	">" : "%3E",
+	"<" : "%3C",		
+}
 
 def html_escape(text):
 	for key in html_escape_table.keys():
@@ -197,7 +197,6 @@ def getYouTubePluginurl(videoid):
 	return 'plugin://plugin.video.youtube/play/?video_id=' + videoid
 
 def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
-
 	#Get basic xml path info
 	xml_header_info = get_xml_header_paths(xmlfilename)
 
@@ -395,17 +394,76 @@ def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
 
 		current_item = []
 		current_item = { 
-			'label' : current_name, 'icon': current_icon2,
-			'thumbnail' : current_thumbnail2,
-			'path' : '', # TODO
-			'info' : {'genre': current_genre, 'studio': current_credits, 'date': current_date, 'plot': current_plot, 'trailer': current_trailer},
-			'properties' : {'fanart_image' : current_fanart[0], 'banner' : current_banner[0], 'clearlogo': current_clearlogo[0], 'poster': current_thumbnail[1],
-			'fanart1': current_fanart[0], 'fanart2': current_fanart[1], 'fanart3': current_fanart[2], 'fanart4': current_fanart[3], 'fanart5': current_fanart[4], 'fanart6': current_fanart[5], 'fanart7': current_fanart[6], 'fanart8': current_fanart[7], 'fanart9': current_fanart[8], 'fanart10': current_fanart[9],
-			'banner1': current_banner[0], 'banner2': current_banner[1], 'banner3': current_banner[2], 'banner4': current_banner[3], 'banner5': current_banner[4], 'banner6': current_banner[5], 'banner7': current_banner[6], 'banner8': current_banner[7], 'banner9': current_banner[8], 'banner10': current_banner[9],
-			'snapshot1': current_snapshot[0], 'snapshot2': current_snapshot[1], 'snapshot3': current_snapshot[2], 'snapshot4': current_snapshot[3], 'snapshot5': current_snapshot[4], 'snapshot6': current_snapshot[5], 'snapshot7': current_snapshot[6], 'snapshot8': current_snapshot[7], 'snapshot9': current_snapshot[8], 'snapshot10': current_snapshot[9],
-			'boxart1': current_thumbnail[0], 'boxart2': current_thumbnail[1], 'boxart3': current_thumbnail[2], 'boxart4': current_thumbnail[3], 'boxart5': current_thumbnail[4], 'boxart6': current_thumbnail[5], 'boxart7': current_thumbnail[6], 'boxart8': current_thumbnail[7], 'boxart9': current_thumbnail[8], 'boxart10': current_thumbnail[9],
-			'nplayers': current_nplayers, 'emu_logo': current_emu_logo, 'emu_fanart': current_emu_fanart, 'emu_name': current_emu_name, 'rom_fname': current_fname, 'rom_sfname': current_sfname, 'rom_save_fname': current_save_fname, 'rom_save_sfname': current_save_sfname,
-			'emu_downloadpath': current_emu_downloadpath, 'emu_postdlaction': current_emu_postdlaction, 'emu_launcher': current_emu_launcher, 'emu_ext_launch_cmd': current_emu_ext_launch_cmd, 'rom_emu_command': current_rom_emu_command}
+			'label' : current_name,
+			'icon': current_icon2,
+			'thumbnail': current_thumbnail2,
+			'path': '', # TODO
+			'info': {
+				'genre': current_genre,
+				'studio': current_credits,
+				'date': current_date,
+				'plot': current_plot,
+				'trailer': current_trailer
+			},
+			'properties': {
+				'fanart_image' : current_fanart[0],
+				'banner': current_banner[0],
+				'clearlogo': current_clearlogo[0],
+				'poster': current_thumbnail[1],
+				'fanart1': current_fanart[0],
+				'fanart2': current_fanart[1],
+				'fanart3': current_fanart[2],
+				'fanart4': current_fanart[3],
+				'fanart5': current_fanart[4],
+				'fanart6': current_fanart[5],
+				'fanart7': current_fanart[6],
+				'fanart8': current_fanart[7],
+				'fanart9': current_fanart[8],
+				'fanart10': current_fanart[9],
+				'banner1': current_banner[0],
+				'banner2': current_banner[1],
+				'banner3': current_banner[2],
+				'banner4': current_banner[3],
+				'banner5': current_banner[4],
+				'banner6': current_banner[5],
+				'banner7': current_banner[6],
+				'banner8': current_banner[7],
+				'banner9': current_banner[8],
+				'banner10': current_banner[9],
+				'snapshot1': current_snapshot[0],
+				'snapshot2': current_snapshot[1],
+				'snapshot3': current_snapshot[2],
+				'snapshot4': current_snapshot[3],
+				'snapshot5': current_snapshot[4],
+				'snapshot6': current_snapshot[5],
+				'snapshot7': current_snapshot[6],
+				'snapshot8': current_snapshot[7],
+				'snapshot9': current_snapshot[8],
+				'snapshot10': current_snapshot[9],
+				'boxart1': current_thumbnail[0],
+				'boxart2': current_thumbnail[1],
+				'boxart3': current_thumbnail[2],
+				'boxart4': current_thumbnail[3],
+				'boxart5': current_thumbnail[4],
+				'boxart6': current_thumbnail[5],
+				'boxart7': current_thumbnail[6],
+				'boxart8': current_thumbnail[7],
+				'boxart9': current_thumbnail[8],
+				'boxart10': current_thumbnail[9],
+				'nplayers': current_nplayers,
+				'emu_logo': current_emu_logo,
+				'emu_fanart': current_emu_fanart,
+				'emu_name': current_emu_name,
+				'rom_fname': current_fname,
+				'rom_sfname': current_sfname,
+				'rom_save_fname': current_save_fname,
+				'rom_save_sfname': current_save_sfname,
+				'emu_downloadpath': current_emu_downloadpath,
+				'emu_postdlaction': current_emu_postdlaction,
+				'emu_launcher': current_emu_launcher,
+				'emu_ext_launch_cmd': current_emu_ext_launch_cmd,
+				'rom_emu_command': current_rom_emu_command
+			}
 		}
 		items.append(current_item)
 
