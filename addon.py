@@ -5,7 +5,9 @@ from resources.lib.util import getParserFilePath
 from resources.lib.util import parse_xml_romfile
 from resources.lib.util import getYouTubePluginurl
 
-plugin = Plugin()
+# xbmcswift2 determines the content type from 'content.game.internet.arcive'.split('.')[1],
+# but only for 'video', 'audio' and 'music' so we need to manually specify it (TODO: patch xbmcswift2)
+plugin = Plugin(info_type='game') 
 
 iarl_setting_clean_list = plugin.get_setting('iarl_setting_clean_list', bool)
 
