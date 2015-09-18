@@ -6,8 +6,8 @@
   </requires>
   <extension point="kodi.content.game" library="addon.py"/>
   <extension point="xbmc.addon.metadata">
-    <summary>Games from the Internet Archive Software Collection</summary>
-    <description>The Internet Archive Software Collection is the largest vintage and historical software library in the world, providing instant access to millions of programs, CD-ROM images, documentation and multimedia.
+    <summary lang="en_GB">Games from the Internet Archive Software Collection</summary>
+    <description lang="en_GB">The Internet Archive Software Collection is the largest vintage and historical software library in the world, providing instant access to millions of programs, CD-ROM images, documentation and multimedia.
 
 Based on Internet Archive ROM Launcher by Zach Morris.</description>
     <platform>all</platform>
