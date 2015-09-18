@@ -3,7 +3,6 @@ import xbmcplugin
 from resources.lib.util import scape_xml_headers
 from resources.lib.util import getParserFilePath
 from resources.lib.util import parse_xml_romfile
-from resources.lib.util import getYouTubePluginurl
 
 # xbmcswift2 determines the content type from 'content.game.internet.arcive'.split('.')[1],
 # but only for 'video', 'audio' and 'music' so we need to manually specify it (TODO: patch xbmcswift2)
@@ -20,14 +19,10 @@ def index():
         items.append({ 
             'label' : emu_info['emu_name'][ii],
             'path': plugin.url_for('get_rom_page', category_id=emu_info['emu_name'][ii]),
+            'info_type': 'folder',
             'icon': emu_info['emu_logo'][ii],
             'thumbnail' : emu_info['emu_thumb'][ii],
             'info' : {
-                'genre': emu_info['emu_category'][ii],
-                'credits': emu_info['emu_author'][ii],
-                'date': emu_info['emu_date'][ii],
-                'plot': emu_info['emu_comment'][ii],
-                'trailer': getYouTubePluginurl(emu_info['emu_trailer'][ii]),
                 'FolderPath': emu_info['emu_baseurl'][ii]
             },
             'properties' : {
@@ -35,6 +30,7 @@ def index():
                 'banner' : emu_info['emu_banner'][ii],
                 'clearlogo': emu_info['emu_logo'][ii]
             },
+            'is_playable': False, # Hack to force xbmcswift2 to report listitem as a folder
         })
 
     return plugin.finish(items, sort_methods=[xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE, xbmcplugin.SORT_METHOD_GENRE])

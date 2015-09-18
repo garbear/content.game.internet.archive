@@ -397,12 +397,13 @@ def parse_xml_romfile(xmlfilename, parserfile, cleanlist, plugin):
 			'label' : current_name,
 			'icon': current_icon2,
 			'thumbnail': current_thumbnail2,
-			'path': '', # TODO
+			'path': current_fname,
+			'is_playable': True,
 			'info': {
-				'genre': current_genre,
-				'studio': current_credits,
+				'title': current_name,
+				'publisher': current_credits, # TODO
 				'date': current_date,
-				'plot': current_plot,
+				'genre': current_genre,
 				'trailer': current_trailer
 			},
 			'properties': {
