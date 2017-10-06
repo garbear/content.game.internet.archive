@@ -46,7 +46,7 @@
 		<setting id="iarl_external_user_external_env" type="select" label="My System Type" values="Select|OSX|Windows|Linux/Kodibuntu|OpenElec x86 (tssemek Addon)|LibreElec x86|LibreElec SX05|RPi Gamestarter Addon|Android" default="Select" visible="true" enable="false"/>
 		<setting id="iarl_external_launch_close_kodi" type="select" label="Close Kodi on Launch" values="Disabled|Enabled" default="Disabled" visible="true" enable="false"/>
 		<setting id="iarl_wizard_launcher" type="select" label="Emulator Launcher" values="Select|External|Kodi Retroplayer" default="External" visible="false"/>
-		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer" default="Select" visible="true"/>
+		<setting id="iarl_wizard_launcher_group" type="select" label="Set me up for" values="Select|Most Playable (Least CPU Intensive)|Balanced|Most Accurate|RetroPlayer" default="RetroPlayer" visible="true"/>
 		<setting type="sep"/>
 		<setting visible="true" label="Run the Wizard" type="action" action="RunScript(special://home/addons/plugin.program.iarl/resources/lib/run_iarl_wizard.py)"/>
 	</category>
