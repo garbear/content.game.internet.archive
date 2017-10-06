@@ -3326,21 +3326,9 @@ def set_new_emu_launcher(xml_id,plugin):
 	current_xml_path = current_xml_fileparts[0]
 
 	current_dialog = xbmcgui.Dialog()
-	ret1 = current_dialog.select('Select New Emulator Launcher', ['Kodi RetroPlayer','External','Cancel'])
-	if ret1 == 0:
-		ret2 = current_dialog.select('Are you sure you want to set the Emulator to Kodi Retroplayer for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','retroplayer')
-			ok_ret = current_dialog.ok('Complete','Emulator updated to Kodi Retroplayer[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	elif ret1 == 1:
-		ret2 = current_dialog.select('Are you sure you want to set the Emulator to External Program for '+current_xml_filename, ['Yes','Cancel'])
-		if ret2<1:
-			update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','external')
-			ok_ret = current_dialog.ok('Complete','Emulator updated to External Program[CR]Cache was cleared for new settings')
-			delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
-	else:
-		pass
+	update_xml_header(current_xml_path,current_xml_filename,'emu_launcher','retroplayer')
+	current_dialog.ok('Complete','Emulator updated to Kodi Retroplayer[CR]Cache was cleared for new settings')
+	delete_userdata_list_cache_file(current_xml_filename.split('.')[0])
 
 def check_file_exists_wildcard(file_path,file_name_2,exact_match_req):
 	#A more robust file exists check.  This will check for any file or folder with the same base filename (replacing spaces with wildcard and file extension with wildcard) that is trying to be launched
