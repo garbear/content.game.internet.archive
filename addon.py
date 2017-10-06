@@ -1162,14 +1162,8 @@ def download_rom_only(iarl_data):
     #3.  Determine action if file already exists
     if (True in iarl_data['current_save_data']['rom_save_filenames_exist']) or (True in iarl_data['current_save_data']['rom_save_supporting_filenames_exist']):
         if 'Prompt'.lower() in iarl_data['settings']['local_file_action'].lower():
-            current_dialog = xbmcgui.Dialog()
-            ret1 = current_dialog.select('Download and overwrite local files?', ['No','Yes'])
-            if ret1 == 0:
-                iarl_data['current_save_data']['overwrite_existing_files'] = False
-                xbmc.log(msg='IARL:  File was found to exist locally, no overwrite option selected', level=xbmc.LOGDEBUG)
-            else:
-                iarl_data['current_save_data']['overwrite_existing_files'] = True
-                xbmc.log(msg='IARL:  File was found to exist locally, overwrite option selected', level=xbmc.LOGDEBUG)
+            iarl_data['current_save_data']['overwrite_existing_files'] = False
+            xbmc.log(msg='IARL:  File was found to exist locally, no overwrite option selected', level=xbmc.LOGDEBUG)
         elif 'Do Not ReDownload'.lower() in iarl_data['settings']['local_file_action'].lower():
             iarl_data['current_save_data']['overwrite_existing_files'] = False
             xbmc.log(msg='IARL:  File was found to exist locally, no overwrite option selected', level=xbmc.LOGDEBUG)
