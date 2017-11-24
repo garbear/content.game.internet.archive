@@ -7,7 +7,7 @@
 		<setting id="iarl_setting_naming" type="select" label="Display Naming Convention" values="Title|Title, Genre|Title, Date|Title, Players|Title, Genre, Date|Title, Genre, Size|Title, Genre, Players|Title, Date, Size|Title, Date, Players|Genre, Title|Date, Title|Players, Title|Genre, Title, Date|Date, Title, Genre|Players, Title, Genre|Players, Title, Date|Title, Genre, Date, ROM Tag|Title, Genre, Date, Players|Title, Genre, Players, ROM Tag|Title, Genre, Date, Size" default="Title"/>
 		<setting id="iarl_setting_items_pp" type="select" label="Number of Items Per Page" values="10|25|50|100|150|200|250|300|350|400|450|500|List All" default="List All"/>
 		<setting id="iarl_setting_history" type="slider" label="Last Played History" default="10" range="0,1,100" option="int"/>
-		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Prompt"/>
+		<setting id="iarl_setting_localfile_action" type="select" label="If Game Already Exists Locally" values="Prompt|Do Not ReDownload|ReDownload and Overwrite" default="Do Not ReDownload"/>
 		<setting id="iarl_setting_default_action" type="select" label="Default Action on Selecting ROM" values="Download and Launch|Download Only|ROM Info Page" default="ROM Info Page"/>
 		<setting id="iarl_setting_rom_window_theme" type="select" label="ROM Window Theme" values="IARL Classic Window|Try to Match Skin" default="IARL Classic Window" visible="false"/>
 		<setting id="iarl_setting_autoplay_trailer" type="select" label="Autoplay Game Trailer" values="No|Yes" default="No"/>
